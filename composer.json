@@ -1,5 +1,5 @@
 {
-    "name": "liuggio/rackspace-cloud-files-bundle",
+    "name": "tvision/rackspace-cloud-files-bundle",
     "type": "symfony-bundle",
     "description": "Provides rackspace cloud files support for #Symfony2 Bundles",
     "keywords": ["cloud", "rackspace", "assetic"],
@@ -22,7 +22,7 @@
         "php": ">=5.3.2",
         "symfony/symfony": "2.*",
         "rackspace/php-opencloud": "dev-master",
-        "liuggio/rackspace-cloud-files-streamwrapper": "dev-master"
+        "tvision/rackspace-cloud-files-streamwrapper": "dev-master"
     }
 
 }
