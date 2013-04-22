@@ -105,7 +105,7 @@ class RSCFService implements RackspaceCloudFilesServiceInterface
      *
      * @return DataObject
      */
-    public function apiGetObjectByContainer(Container $container, $objectData)
+    public function apiGetObjectByContainer($container, $objectData)
     {
         if (!$container) {
             return false;
