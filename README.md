@@ -106,7 +106,7 @@ tvision_rackspace_cloud_files:
     auth:
         username: YOUR-USERNAME
         api_key: YOUR-API-KEY
-        host: https://lon.identity.api.rackspacecloud.com/v2.0 # or usa
+        host: https://lon.identity.api.rackspacecloud.com/v2.0 # or https://identity.api.rackspacecloud.com/v2.0 (usa)
         container_name: YOUR-CONTAINER-NAME
         region: LON 
 ```
