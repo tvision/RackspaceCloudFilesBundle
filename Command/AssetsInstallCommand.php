@@ -28,7 +28,6 @@ class AssetsInstallCommand extends ContainerAwareCommand
                 new InputArgument('localDir', InputArgument::REQUIRED, 'path/to/dir, all , bundle name'),
                 new InputArgument('target', InputArgument::REQUIRED, 'The target directory'),
                 new InputArgument('filter', InputArgument::OPTIONAL, 'path filter'),
-                new InputOption('verbose', 'v', InputOption::VALUE_NONE, 'Verbose mode'),
             ))
             ->setDescription('Installs bundles web assets under a rackspace cloudfiles container')
             ->setHelp(<<<EOT
