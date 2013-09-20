@@ -178,7 +178,7 @@ Requirements
 
 - PHP > 5.3.0
 
-- rackspace/php-cloudfiles.git
+- rackspace/php-opencloud.git
 
 - tvision/RackspaceCloudFilesStreamWrapper
 
