@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tvision/RackspaceCloudFilesBundle.png?branch=master)](https://travis-ci.org/tvision/RackspaceCloudFilesBundle)
 [![Latest Stable Version](https://poser.pugx.org/tvision/rackspace-cloud-files-bundle/v/stable.png)](https://packagist.org/packages/tvision/rackspace-cloud-files-bundle)
 
 Introduction
