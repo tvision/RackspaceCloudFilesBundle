@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
                     ->children()                
                         ->scalarNode('register')->defaultValue(false)->end()
                         ->scalarNode('protocol_name')->defaultValue('rscf')->end()
-                        ->scalarNode('class')->defaultValue('\\Tvision\\RackspaceCloudFilesStreamWrapper\\StreamWrapper\\RackspaceCloudFilesStreamWrapper')->end()
+                        ->scalarNode('class')->defaultValue('\Tvision\RackspaceCloudFilesStreamWrapper\StreamWrapper\RackspaceCloudFilesStreamWrapper')->end()
                     ->end()
                 ->end()
                 ->arrayNode('auth')
