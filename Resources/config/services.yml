@@ -1,19 +1,25 @@
 parameters:
-
-
     tvision_rackspace_cloud_files.service.class: Tvision\RackspaceCloudFilesStreamWrapper\Service\RSCFService
-    tvision_rackspace_cloud_files.api.service.class: Tvision\RackspaceCloudFilesStreamWrapper\Service\RackspaceApi
-    tvision_rackspace_cloud_files.api.connection.class: OpenCloud\Rackspace
+    tvision_rackspace_cloud_files.api.object_store.class: OpenCloud\ObjectStore\Service
+    tvision_rackspace_cloud_files.api.object_store.factory.class: Tvision\RackspaceCloudFilesStreamWrapper\Factory\RSCFObjectStoreFactory
 
-    tvision_rackspace_cloud_files.resource_entity.class: Tvision\RackspaceCloudFilesStreamWrapper\Model\RackspaceCloudFilesResource
     tvision_rackspace_cloud_files.filetype_guesser_entity.class: Tvision\RackspaceCloudFilesStreamWrapper\Service\FileTypeGuesser
 
 services:
+    tvision_rackspace_cloud_files.api.object_store:
+        class: %tvision_rackspace_cloud_files.api.object_store.class%
+        factory_class:  %tvision_rackspace_cloud_files.api.object_store.factory.class%
+        factory_method: newObjectStore
+        arguments:
+            - { username: %tvision_rackspace_cloud_files.auth.username%, apiKey: %tvision_rackspace_cloud_files.auth.api_key% }
+            - %tvision_rackspace_cloud_files.auth.host%
+            - %tvision_rackspace_cloud_files.auth.region%
 
-    tvision_rackspace_cloud_files.api.service:
-        class: %tvision_rackspace_cloud_files.api.service.class%
-        arguments: [%tvision_rackspace_cloud_files.api.connection.class%, %tvision_rackspace_cloud_files.auth.host%, %tvision_rackspace_cloud_files.auth.username%, %tvision_rackspace_cloud_files.auth.api_key%, %tvision_rackspace_cloud_files.auth.container_name%, %tvision_rackspace_cloud_files.auth.region%]
+    tvision_rackspace_cloud_files.filetype_guesser_entity:
+        class: %tvision_rackspace_cloud_files.filetype_guesser_entity.class%
 
     tvision_rackspace_cloud_files.service:
         class: %tvision_rackspace_cloud_files.service.class%
-        arguments: [%tvision_rackspace_cloud_files.stream_wrapper.protocol_name%, '@tvision_rackspace_cloud_files.api.service', %tvision_rackspace_cloud_files.stream_wrapper.class%, %tvision_rackspace_cloud_files.resource_entity.class%, %tvision_rackspace_cloud_files.filetype_guesser_entity.class%]
+        arguments: [@tvision_rackspace_cloud_files.api.object_store, %tvision_rackspace_cloud_files.auth.container_name%]
+        calls:
+            - [setFileTypeGuesser, [@tvision_rackspace_cloud_files.filetype_guesser_entity]]
