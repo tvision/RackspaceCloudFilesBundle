@@ -23,7 +23,7 @@ see the blog post for more detail
 
 deps:
 
-```
+``` ini
 [php-opencloud]
     git=git://github.com/rackspace/php-opencloud.git
     target=/rackspace/php-opencloud
@@ -40,7 +40,7 @@ deps:
 
 app/autoload.php
 
-```
+``` php
 $loader->registerNamespaces(array(
     //other namespaces
     'Tvision\\RackspaceCloudFilesStreamWrapper' =>  __DIR__.'/../vendor/tvision-rackspace-cloud-files-streamwrapper/src',
@@ -51,7 +51,7 @@ $loader->registerNamespaces(array(
 
 app/AppKernel.php
 
-```
+``` php
 public function registerBundles()
 {
     return array(
@@ -66,11 +66,11 @@ Installation Composer
 
 * 1 First, add the dependent bundle to the vendor/bundles directory. Add the following lines to the composer.json file
 
-```
+``` javascript
     "require": {
-    # ..
-    "tvision/rackspace-cloud-files-bundle": ">=2.2",
-    # ..
+    // ..
+    "tvision/rackspace-cloud-files-bundle": "~3.0",
+    // ..
     }
 ```
 
@@ -79,7 +79,7 @@ Installation Composer
 
 * 3 Then add in your `app/AppKernel`
 
-``` yaml
+``` php
 
  class AppKernel extends Kernel
  {
@@ -97,7 +97,7 @@ Installation Composer
 
 app/config/config.yml
 
-```
+``` yaml
 #  Rackspace Cloud Files configuration
 
 tvision_rackspace_cloud_files:
@@ -116,20 +116,20 @@ tvision_rackspace_cloud_files:
 
 Get the Rackspace service to work with:
 
-```
+``` php
 $auth = $this->get('tvision_rackspace_cloud_files.service')
-
 ```
 
 ## Usage example without assetic
 
-```
-
+``` php
 $conn = $this->get('tvision_rackspace_cloud_files.service');
 $container = $conn->apiGetContainer('container-name');
+```
 
 or
 
+``` php
 $container = $this->get('tvision_rackspace_cloud_files.service')->apiGetContainer('container-name');
 
 echo "<pre>";
@@ -148,7 +148,7 @@ http://www.welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files/
 
 ## Installing bundles assets (public directory) to cloudfiles with `rscf:assets:install` special console command
 
-```
+``` bash
 app/console rscf:assets:install rscf://my_container/my/path
 ```
 
@@ -161,7 +161,7 @@ This will copy assets just like the `assets:install` command would but directly 
 
 add this into the config.yml
 
-```
+``` yaml
 assetic:
     debug: false
     use_controller: false
@@ -170,7 +170,7 @@ assetic:
 
 Type to the console
 
-```
+``` bash
 app/console assetic:dump
 ```
 
