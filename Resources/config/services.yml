@@ -8,8 +8,7 @@ parameters:
 services:
     tvision_rackspace_cloud_files.api.object_store:
         class: %tvision_rackspace_cloud_files.api.object_store.class%
-        factory_class:  %tvision_rackspace_cloud_files.api.object_store.factory.class%
-        factory_method: newObjectStore
+        factory:  [%tvision_rackspace_cloud_files.api.object_store.factory.class%, newObjectStore]
         arguments:
             - { username: %tvision_rackspace_cloud_files.auth.username%, apiKey: %tvision_rackspace_cloud_files.auth.api_key% }
             - %tvision_rackspace_cloud_files.auth.host%
