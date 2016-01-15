@@ -13,7 +13,7 @@ class TvisionRackspaceCloudFilesBundle extends Bundle
     {
         parent::boot();
         $swc = $this->container->getParameter('tvision_rackspace_cloud_files.stream_wrapper.class');
-        $swc::setService($this->container->get('tvision_rackspace_cloud_files.service'));
+        //$swc::setService($this->container->get('tvision_rackspace_cloud_files.service'));
 
         if($this->container->getParameter('tvision_rackspace_cloud_files.stream_wrapper.register')) {
             $swc::registerStreamWrapperClass($this->container->getParameter('tvision_rackspace_cloud_files.stream_wrapper.protocol_name'));
